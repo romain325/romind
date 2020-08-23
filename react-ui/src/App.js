@@ -30,8 +30,8 @@ function App() {
   }, [fetchData]);
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App" >
+      <header className="App-header" >
         <img src={logo} className="App-logo" alt="logo" />
         { process.env.NODE_ENV === 'production' ?
             <p>
