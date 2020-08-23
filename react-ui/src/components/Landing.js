@@ -2,11 +2,13 @@ import React from "react";
 import { Container } from "reactstrap";
 import Particles from "react-tsparticles";
 import PartConfig from "../assets/json/particleConfig.json";
+import NavBar from "./NavBar"
 
 class PageHeader extends React.Component {
   render() {
     return (
       <div className="page-header header-filter">
+      <NavBar />
         <Container>
           <Particles options={PartConfig} style={
             {
@@ -30,7 +32,7 @@ class PageHeader extends React.Component {
               height: '96px'
             }
           }>
-            <h1 className="h1-seo">romind.</h1>
+            <h1 className="h1-seo">[romind.]</h1>
             <h4 className="d-none d-sm-block">
               New version of my website build with 
               React/NodeJS on Heroku
