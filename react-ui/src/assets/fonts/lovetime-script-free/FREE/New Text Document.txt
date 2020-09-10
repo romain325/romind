@@ -1,0 +1,23 @@
+hi Friends...... Welcome LOVETIME Script
+
+LOVETIME Script is a beautiful Script, It suitable for wedding invitation, greeting cards, T-Shirt, Logo or any design that you create.comes with a complete set of standard characters, Alternates, Punctuation & international glyphs
+
+LOVETIME Script There are 3 family
+
+LOVETIME (regular)
+LOVETIME ALTERNATES GLYPHS
+LOVETIME CLEAN GLYPHS
+Features
+
+UPPERCASE
+lowercase
+numeral
+punctuation
+international glyphs
+Support PUA unicode (specially coded fonts)
+Ligatures
+Includes
+
+Lovetime (otf & ttf)
+Lovetime Alternates (otf & ttf)
+Lovetime Clean (otf & ttf)

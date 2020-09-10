@@ -6,25 +6,39 @@ import './assets/css/main.css';
 import App from './App';
 import Landing from './components/Landing';
 import * as serviceWorker from './serviceWorker';
-import { Auth0Provider } from "@auth0/auth0-react";
-import Auth0ProviderWithHistory from "./auth0ProviderWithHistory";
+import MarkdownRenderer from './components/Articles/MarkdownRenderer';
+import TopicMenu from './views/TopicMenu';
 
 ReactDOM.render( 
-    <BrowserRouter>
-        <Auth0ProviderWithHistory>
-            <App />
-        </Auth0ProviderWithHistory>
-    </BrowserRouter>,
+        <BrowserRouter>
+            <Switch>
+                    <Route exact path="/">
+                        <Redirect to="/home" />
+                    </Route>
+                    <Route exact path="/home" render={props => <App />}/>
+                    <Route exact path="/head" render={props => <Landing />}/>
+                    <Route exact path="/MdRender" render={props => <MarkdownRenderer props={{"md":"FUCKKKKKK"}} />}/>
+                    <Route exact path="/article/:type">
+                        <TopicMenu/>
+                    </Route>
+                    <Route exact path="/article/:type/:id">
+                        <MarkdownRenderer/>
+                    </Route>
+                </Switch>
+        </BrowserRouter>,
     document.getElementById('root')
 );
 /*
-<Switch>
-    <Route exact path="/">
-        <Redirect to="/home" />
-    </Route>
-    <Route exact path="/home" render={props => <Auth0ProviderWithHistory><App /></Auth0ProviderWithHistory>}/>
-    <Route exact path="/head" render={props => <Landing />}/>
-</Switch>
+        <Auth0ProviderWithHistory>
+            <Switch>
+                <Route exact path="/">
+                    <Redirect to="/home" />
+                </Route>
+                <Route exact path="/home" render={props => <App />}/>
+                <Route exact path="/head" render={props => <Landing />}/>
+            </Switch>
+        </Auth0ProviderWithHistory>
+            <App />
 */
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

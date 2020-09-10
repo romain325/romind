@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
@@ -29,6 +30,26 @@ if (!isDev && cluster.isMaster) {
   app.get('/api', function (req, res) {
     res.set('Content-Type', 'application/json');
     res.send('{"message":"Hello from the custom server!"}');
+  });
+
+  app.get('/api/articles/info', (req, res) => {
+    res.set('Content-Type', 'application/json');
+    const contentPath = path.join(__dirname, 'data/markdown/info');
+    const returnObj = {
+      fileType: 'markdown',
+      type: 'info',
+      content: []
+    };
+    fs.readdir(contentPath, (err, files) => {
+      if(err){
+        return console.log('Error Scanning directory\n' + err.message);
+      }
+
+      returnObj.content = files;
+
+      res.send(JSON.stringify(returnObj));
+    });
+
   });
 
   // All remaining requests return the React app, so it can handle routing.

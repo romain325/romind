@@ -5,6 +5,7 @@ import PartConfig from "../assets/json/particleConfig.json";
 import NavBar from "./NavBar"
 
 class PageHeader extends React.Component {
+
   render() {
     return (
       <div className="page-header header-filter">
