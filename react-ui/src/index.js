@@ -19,6 +19,9 @@ ReactDOM.render(
                     <Route exact path="/home" render={props => <App />}/>
                     <Route exact path="/head" render={props => <Landing />}/>
                     <Route exact path="/MdRender" render={props => <MarkdownRenderer props={{"md":"FUCKKKKKK"}} />}/>
+                    <Route exact path="/article">
+                        <TopicMenu />
+                    </Route>
                     <Route exact path="/article/:type">
                         <TopicMenu/>
                     </Route>

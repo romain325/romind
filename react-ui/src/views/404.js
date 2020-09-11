@@ -5,14 +5,14 @@ import '../assets/css/404.scss';
 function Error404(){
 
     return (
-        <div class="b404">
-            <div class="content">
-                <div class="browser-bar">
-                    <a href="/"><span class="close button"></span></a>
-                    <span class="min button"></span>
-                    <span class="max button"></span>
+        <div className="b404">
+            <div className="content">
+                <div className="browser-bar">
+                    <a href="/"><span className="close button"></span></a>
+                    <span className="min button"></span>
+                    <span className="max button"></span>
                 </div>
-                <div class="text">
+                <div className="text">
                     <Typed 
                         strings={[
                             'Are you lost? <br/> ^200' +

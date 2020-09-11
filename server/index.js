@@ -32,16 +32,41 @@ if (!isDev && cluster.isMaster) {
     res.send('{"message":"Hello from the custom server!"}');
   });
 
-  app.get('/api/articles/info', (req, res) => {
+  app.get('/api/articles/*/*', (req, res) =>{
     res.set('Content-Type', 'application/json');
-    const contentPath = path.join(__dirname, 'data/markdown/info');
+    var link = req.headers.referer.split('/').slice(-2);
+    var folder = link[0], file = link[1];
+
+    const contentPath = path.join(__dirname, 'data/markdown/'+folder+'/'+file);
+    try {
+      fs.readFile(contentPath, 'utf8', (err, data)=>{
+        const returnObj = {result:"Success", content:data};
+        res.send(returnObj);
+      })
+    }catch(err){
+      const returnObj = {result:"Error", content:err};
+      res.send(returnObj);
+    }
+
+  });
+  
+  app.get('/api/articles/*', (req, res) => {
+    res.set('Content-Type', 'application/json');
+    var ext = (req.headers.referer.split('/').slice(-1)[0]);
+    const contentPath = path.join(__dirname, 'data/markdown/'+ext);
     const returnObj = {
+      result : 'Success',
       fileType: 'markdown',
-      type: 'info',
+      type: ext,
       content: []
     };
     fs.readdir(contentPath, (err, files) => {
       if(err){
+        res.send(JSON.stringify({
+          result: 'Error',
+          type :'error',
+          message : err.message
+        }));
         return console.log('Error Scanning directory\n' + err.message);
       }
 
@@ -49,7 +74,30 @@ if (!isDev && cluster.isMaster) {
 
       res.send(JSON.stringify(returnObj));
     });
+  });
 
+
+  app.get('/api/articles', (req, res) => {
+    res.set('Content-Type', 'application/json');
+    const contentPath = path.join(__dirname, 'data/markdown');
+    const returnObj = {
+      result : 'Success',
+      fileType: 'folder',
+      type: 'data',
+      content: []
+    };
+    fs.readdir(contentPath, (err, files) => {
+      if(err){
+        res.send(JSON.stringify({
+          result: 'Error',
+          type :'error',
+          message : err.message
+        }));
+        return console.log('Error Scanning directory\n' + err.message);
+      }
+      returnObj.content = files;
+      res.send(JSON.stringify(returnObj));
+    });
   });
 
   // All remaining requests return the React app, so it can handle routing.

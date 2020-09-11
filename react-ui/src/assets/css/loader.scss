@@ -8,6 +8,63 @@ $lite:  rgba(255, 255, 255, 0.781);
 $brand: #8218b3;
 $size: 48px;
 
+hr.solid{
+  display: block;
+  margin:0 auto;
+  position:relative;
+  width:100%;
+  height:75px;
+  }
+hr.solid:after{
+  content:"";
+  position:absolute;
+  width:50%;
+  height:100px;
+  border-top:3px solid rgba(239, 170, 241, 0.747);
+  border-radius:80%;
+  left:42.5%;
+  top:10%;
+  }
+hr.solid:before{
+  content:"";
+  position:absolute;
+  width:50%;
+  height:100px;
+  border-bottom:3px solid rgba(239, 170, 241, 0.747);
+  border-radius:80%;
+  left:7.5%;
+  margin-top:-3%;
+}
+
+hr.solidInvert{
+  display: block;
+  margin:0 auto;
+  position:relative;
+  width:100%;
+  height:75px;
+}
+hr.solidInvert:after{
+  content:"";
+  position:absolute;
+  width:50%;
+  height:100px;
+  border-top:3px solid rgba(239, 170, 241, 0.747);
+  border-radius:80%;
+  left:7.5%;
+}
+hr.solidInvert:before{
+  content:"";
+  position:absolute;
+  width:50%;
+  height:100px;
+  border-bottom:3px solid rgba(239, 170, 241, 0.747);
+  border-radius:80%;
+  left:42.5%;
+  top:-60%;
+}
+
+
+
 // Loaders
 
 .loader-1 {
