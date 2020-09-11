@@ -8,6 +8,7 @@ import Landing from './components/Landing';
 import * as serviceWorker from './serviceWorker';
 import MarkdownRenderer from './components/Articles/MarkdownRenderer';
 import TopicMenu from './views/TopicMenu';
+import Error404 from './views/404';
 
 ReactDOM.render( 
         <BrowserRouter>
@@ -23,6 +24,9 @@ ReactDOM.render(
                     </Route>
                     <Route exact path="/article/:type/:id">
                         <MarkdownRenderer/>
+                    </Route>
+                    <Route exact path="/404">
+                        <Error404 />
                     </Route>
                 </Switch>
         </BrowserRouter>,
