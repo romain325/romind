@@ -2,53 +2,50 @@
     "basics": {
         "name": "Romain Olivier",
         "label": "Programmer",
-        "picture": "",
+        "picture": "/assets/img/me.jpg",
         "email": "romainolivier42@gmail.com",
         "phone": "06 83 XX XX XX",
-        "website": "http://johndoe.com",
-        "summary": "A summary of John Doe...",
+        "website": "https://romind.herokuapp.com/",
+        "summary": "My Dev Resume",
         "location": {
-            "address": "2712 Broadway St",
-            "postalCode": "CA 94115",
-            "city": "San Francisco",
-            "countryCode": "US",
-            "region": "California"
+            "address": "35 Roche Genes St",
+            "postalCode": "63170",
+            "city": "Clermont-Ferrand",
+            "countryCode": "FR",
+            "region": "France"
         },
         "profiles": [
             {
-                "network": "Twitter",
-                "username": "john",
-                "url": "http://twitter.com/john"
+                "network": "Github",
+                "username": "romain325",
+                "url": "https://github.com/romain325"
+            },
+            {
+                "network": "Linkedin",
+                "username": "Romain Olivier",
+                "url": "https://www.linkedin.com/in/romain-olivier-39388a198/"
+            },
+            {
+                "network": "Instagram",
+                "username": "rooomaaaiiiiin",
+                "url": "https://www.instagram.com/rooomaaaiiiiin/"
             }
         ]
     },
     "work": [
         {
-            "name": "Company 2 ",
-            "position": "Worker",
-            "website": "http://company.com",
-            "startDate": "2014-01-01",
-            "summary": "Description...",
-            "location": "Paris, France",
-            "highlights": ["Started the company"]
-        },
-        {
-            "name": "What a nice office",
-            "position": "President",
-            "website": "http://company.com",
-            "startDate": "2013-01-01",
-            "endDate": "2014-01-01",
-            "summary": "Description...",
-            "location": "Paris, France",
-            "highlights": ["Started the company"]
-        },
-        {
-            "name": "What a nice experience",
-            "position": "Lead dev",
-            "website": "http://company.com",
-            "summary": "Description...",
-            "location": "Paris, France",
-            "highlights": ["Started the company"]
+            "name": "Dalkia",
+            "position": "Developper",
+            "website": "https://www.dalkia.fr/en",
+            "startDate": "01-07-2020",
+            "endDate": "30-08-2020",
+            "summary": "Multi-project Developer: -Xamarin Forms Application\n-Front-End jquery Developer\n-GSuite Tools Developer",
+            "location": "Lyon, France",
+            "highlights": [
+                "First job as a Developer",
+                "Multi Platform Development",
+                "Deployment at a regional level"
+            ]
         }
     ],
     "volunteer": [
@@ -63,22 +60,32 @@
     ],
     "education": [
         {
-            "institution": "ISEN",
-            "area": "Software Development",
-            "studyType": "Engineer Degree",
-            "startDate": "2011-01-01",
-            "endDate": "2013-01-01",
-            "gpa": "4.0",
-            "courses": ["DB1101 - Basic SQL"]
+            "institution": "UCA",
+            "area": "Computer Science",
+            "studyType": "DUT",
+            "startDate": "04-09-2019",
+            "endDate": "",
+            "gpa": "",
+            "courses": [
+                "Advanced Algorithmic",
+                "Advanced DataBase",
+                "Object Development",
+                "Appliqued Mathematics"
+            ]
         },
         {
-            "institution": "Université d'artois",
-            "area": "",
-            "studyType": "",
-            "startDate": "2011-01-01",
-            "endDate": "",
-            "gpa": "4.0",
-            "courses": ["DB1101 - Basic SQL"]
+            "institution": "Theodore de Banville",
+            "area": "General",
+            "studyType": "High-School",
+            "startDate": "",
+            "endDate": "30-07-2019",
+            "gpa": "Mention Bien",
+            "courses": [
+                "Mathematics",
+                "Biology",
+                "Physics",
+                "Chemistry"
+            ]
         }
     ],
     "awards": [
@@ -100,62 +107,86 @@
     ],
     "skills": [
         {
-            "name": "Reactaaa",
-            "level": "Master",
-            "value": 100,
-            "keywords": ["HTML", "CSS", "Javascript"]
-        },
-        {
-            "name": "Angular",
-            "level": "Master",
-            "value": 80,
-            "keywords": ["HTML", "CSS", "Javascript"]
+            "name": "React",
+            "level": "Good",
+            "value": 60,
+            "keywords": ["CSS", "Javascript","React","TypeScript"]
         },
         {
             "name": "NodeJS",
-            "level": "Master",
-            "value": 40,
-            "keywords": ["HTML", "CSS", "Javascript"]
+            "level": "Good",
+            "value": 50,
+            "keywords": ["Javascript","NodeJS"]
         },
         {
-            "name": "Firebase",
-            "level": "Master",
-            "value": 60,
-            "keywords": ["HTML", "CSS", "Javascript"]
+            "name": "Java",
+            "level": "Good",
+            "value": 70,
+            "keywords": ["Java","Algorithms"]
         },
         {
-            "name": "Gmail",
-            "level": "Master",
-            "value": 20,
-            "keywords": ["HTML", "CSS", "Javascript"]
+            "name": "Python",
+            "level": "Beginner",
+            "value": 35,
+            "keywords": ["Python","AI","ML"]
         },
         {
-            "name": "K8S",
-            "level": "Master",
+            "name": ".NET Core/Framework",
+            "level": "Good",
+            "value": 50,
+            "keywords": ["C#", ".NET", ".NetCore",".NetFramework"]
+        },
+        {
+            "name": "Xamarin Forms/Android/iOS",
+            "level": "Good",
             "value": 80,
-            "keywords": ["HTML", "CSS", "Javascript"]
+            "keywords": ["C#","Xamarin","Android","iOS","Forms","MultiPlatforms"]
+        },
+        {
+            "name": "C/C++",
+            "level": "Beginner",
+            "value": 40,
+            "keywords": ["C", "C++"]
+        }
+
+    ],
+    "languages": [
+        { 
+            "language": "English", 
+            "value": 75, 
+            "fluency": "Nearly Fluent" 
+        },
+        { 
+            "language": "French", 
+            "value": 100, 
+            "fluency": "Natif" 
+        },
+        { 
+            "language": "Japanese", 
+            "value": 10, 
+            "fluency": "Beginner" 
         }
     ],
-    "languages": [{ "language": "English", "value": 100, "fluency": "Native speaker" }],
     "interests": [
         {
-            "name": "Burritos",
-            "gifUrl": "https://media.giphy.com/media/d8WjGORtSEWqc/giphy.gif"
+            "name": "Music",
+            "gifUrl": "https://media.giphy.com/media/3o6ZtdARd9exOTKPOo/giphy.gif"
         },
         {
-            "name": "Dogs",
-            "gifUrl": "https://media.giphy.com/media/3o85xsGXVuYh8lM3EQ/giphy.gif"
+            "name": "Art",
+            "gifUrl": "https://media.giphy.com/media/3oEduR8JONr03Z8TuM/giphy.gif"
         },
         {
-            "name": "Tendresse",
-            "gifUrl": "https://media.giphy.com/media/EehnUUCH2JcwU/giphy.gif"
+            "name": "Programming",
+            "gifUrl": "https://media.giphy.com/media/jTNG3RF6EwbkpD4LZx/giphy.gif"
         },
         {
-            "name": "Something",
-            "gifUrl": "https://media.giphy.com/media/xTiTnIuKP1BLsMTerS/giphy.gif"
+            "name": "Learning",
+            "gifUrl": "https://media.giphy.com/media/fhAwk4DnqNgw8/giphy.gif"
         },
         {
-            "name": "J'aime faire de la course à pied et des randonnées en famille le weekend."
+            "name": "Manga/Anime",
+            "gifUrl": "https://media.giphy.com/media/4ilFRqgbzbx4c/giphy.gif"
         }
     ],
     "references": [{ "name": "Jane Doe", "reference": "Reference..." }],
@@ -177,41 +208,41 @@
     "specific": {
         "basics": {
             "visaSponsorship": true,
-            "personalDescription": "This is a longer description of me, of my backstory, my backyard, my backfire, my backend, my frontend and my friends."
+            "personalDescription": "I'm a student in Computer Science, I'm passionated and determined, I love to learn new things and take up challenge. I dedicate my free time to my passions such as Music and Programming. I love to spend time with friends and discover new people."
         },
         "dreamJob": {
             "locations": [
-                { "name": "Valenciennes, France" },
-                { "name": "Lille, France" },
+                { "name": "Japan" },
+                { "name": "Lyon, France" },
                 { "name": "Paris,France" },
-                { "name": "Paris,France" },
-                { "name": "Lille, France" },
-                { "name": "Valenciennes, France" }
+                { "name": "Brighton,England" },
+                { "name": "London, England" },
+                { "name": "Toronto, Canada" }
             ],
-            "remoteFrequency": "regularly"
+            "remoteFrequency": "Regularly"
         },
         "currentJob": {
-            "issues": { "boring_management": true, "boring_team": true }
+            "issues": { "no_job": true }
         },
-        "education": { "studiesLevel": 5 },
+        "education": { "studiesLevel": 2 },
         "work": {
-            "contractTypes": ["permanent"],
-            "codingYears": 7,
-            "codingReason": "J'ai commencé à coder sur Amstrad dans ma cave et je n'ai jamais arrêté depuis",
+            "contractTypes": ["None"],
+            "codingYears": 5,
+            "codingReason": "I've started by coding for Minecraft and GMod and I never stopped !",
             "searchState": "activelySearching",
-            "experienceYears": 0,
-            "codeExperienceYears": 1,
-            "otherExperienceYears": 1
+            "experienceYears": 0.2,
+            "codeExperienceYears": 3,
+            "otherExperienceYears": 0
         },
         "sound": {
-            "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWWl7MndYYxge"
+            "embedUrl": "https://open.spotify.com/playlist/5B0LlL86biujOPsWX5Byhq?si=WIiLCOi2TtypDJE9NzOKug"
         },
-        "interestedBy": "Angular, la blochain et les chatons."
+        "interestedBy": "Artifical Intelligence, Informatic Security, And of course Programming"
     },
     "resumeCustomization": {
         "imageHeader": {
-            "url": "https://cdn.filestackcontent.com/8I2wVnCRTFxypXRYLRsp",
-            "alt": "Default Banner"
+            "url": "https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1466&q=80",
+            "alt": "Space"
         },
         "cardsOrder": [
             { "type": "basics", "variant": 4 },
