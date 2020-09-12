@@ -9,28 +9,27 @@ import * as serviceWorker from './serviceWorker';
 import MarkdownRenderer from './components/Articles/MarkdownRenderer';
 import TopicMenu from './views/TopicMenu';
 import Error404 from './views/404';
+import CV from './views/Cv';
 
 ReactDOM.render( 
         <BrowserRouter>
             <Switch>
                     <Route exact path="/">
-                        <Redirect to="/home" />
+                        <Redirect to="/head" />
                     </Route>
                     <Route exact path="/home" render={props => <App />}/>
                     <Route exact path="/head" render={props => <Landing />}/>
-                    <Route exact path="/MdRender" render={props => <MarkdownRenderer props={{"md":"FUCKKKKKK"}} />}/>
-                    <Route exact path="/article">
-                        <TopicMenu />
-                    </Route>
+                    <Route exact path="/article" render={props => <TopicMenu />}/>
                     <Route exact path="/article/:type">
                         <TopicMenu/>
                     </Route>
                     <Route exact path="/article/:type/:id">
                         <MarkdownRenderer/>
                     </Route>
-                    <Route exact path="/404">
-                        <Error404 />
+                    <Route exact path="/cv?lang=:lang">
+                        <CV />
                     </Route>
+                    <Route exact path="/404" render={props => <Error404 />} />
                 </Switch>
         </BrowserRouter>,
     document.getElementById('root')

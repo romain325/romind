@@ -100,6 +100,21 @@ if (!isDev && cluster.isMaster) {
     });
   });
 
+  app.get('/api/cv?lang=*', (req, res) => {
+    res.set('Content-Type', 'application/json');
+    var ext = (req.headers.referer.split('=').slice(-1)[0]);
+    const contentPath = path.join(__dirname, `data/json/cv_${ext}.json`);
+    try {
+      fs.readFile(contentPath, 'utf8', (err, data)=>{
+        const returnObj = {result:"Success", content:data};
+        res.send(returnObj);
+      })
+    }catch(err){
+      const returnObj = {result:"Error", content:err};
+      res.send(returnObj);
+    }
+  });
+
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
     response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
