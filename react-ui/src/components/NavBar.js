@@ -22,6 +22,7 @@ import { GoMarkGithub } from 'react-icons/go';
 import { FaInstagram } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import { GiBookAura } from 'react-icons/gi';
+import { AiFillHome } from 'react-icons/ai'
 
 class ComponentsNavbar extends React.Component {
   constructor(props) {
@@ -170,6 +171,9 @@ class ComponentsNavbar extends React.Component {
                   DropDown
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-with-icons">
+                  <DropdownItem tag={Link} to="/">
+                    <AiFillHome />  Home
+                  </DropdownItem>
                   <DropdownItem tag={Link} to="/article">
                     <GiBookAura />  Articles
                   </DropdownItem>
