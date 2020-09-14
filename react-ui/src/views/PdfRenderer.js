@@ -2,13 +2,16 @@ import React from "react";
 import { Document, Page, pdfjs } from "react-pdf"; 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 import { 
-  useParams, Redirect
+  useParams, useHistory
 } from 'react-router-dom';
 
 function PdfRenderer(){
-
+  const history = useHistory();
+  const redirectTo404 = () => {
+    history.push('/404');
+  };
   const params = useParams();
-  const fileName = `./${params.file}.pdf`; 
+  const fileName = `./${(params.file).toLowerCase()}.pdf`;  
   return (
     <div className="d-flex justify-content-center" 
       style={{
@@ -16,8 +19,7 @@ function PdfRenderer(){
       }}
     >
       <Document file={fileName}
-        onLoadError={console.error}
-
+        onLoadError={redirectTo404}
       >
         <Page pageNumber={1} width={800}/>
       </Document>

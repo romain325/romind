@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import React, { useCallback, useEffect, useState } from 'react';
 import NavBar from "../../components/NavBar"
 import { 
-    useParams, Redirect
+    useParams, useHistory
 } from 'react-router-dom';
 
 function MarkdownRenderer(){
@@ -16,7 +16,10 @@ function MarkdownRenderer(){
   const [url, setUrl] = useState(`/api/articles/${topicId.type}/${topicId.id}`);
 
   let searchBarVal = "";
-
+  const history = useHistory();
+  const redirectTo404 = () => {
+    history.push('/404');
+  };
   const fetchData = useCallback(() => {
     fetch(url)
       .then(response => {
@@ -36,6 +39,7 @@ function MarkdownRenderer(){
         console.log(e);
         setArticle(`API call failed: ${e}`);
         setIsFetching(false);
+        redirectTo404();
       })
   }, [url]);
 

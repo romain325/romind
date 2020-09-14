@@ -35,6 +35,7 @@ ReactDOM.render(
                     <Route exact path="/404">
                         <Error404 />
                     </Route>
+                    <Route component={Error404} />
                 </Switch>
         </BrowserRouter>,
     document.getElementById('root')

@@ -38,15 +38,16 @@ if (!isDev && cluster.isMaster) {
     var folder = link[0], file = link[1];
 
     const contentPath = path.join(__dirname, 'data/markdown/'+folder+'/'+file);
-    try {
-      fs.readFile(contentPath, 'utf8', (err, data)=>{
-        const returnObj = {result:"Success", content:data};
+    fs.readFile(contentPath, 'utf8', (err, data)=>{
+      const returnObj = {result:"Success", content:data};
+      if(err != null) {
+        const returnObj = {result:"Error", content:"Unknown File"};
         res.send(returnObj);
-      })
-    }catch(err){
-      const returnObj = {result:"Error", content:err};
-      res.send(returnObj);
-    }
+      }
+      else{
+        res.send(returnObj);
+      }
+    });
 
   });
   
