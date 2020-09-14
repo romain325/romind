@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import MarkdownRenderer from './components/Articles/MarkdownRenderer';
 import TopicMenu from './views/TopicMenu';
 import Error404 from './views/404';
+import PdfRenderer from './views/PdfRenderer';
 
 ReactDOM.render( 
         <BrowserRouter>
@@ -27,6 +28,9 @@ ReactDOM.render(
                     </Route>
                     <Route exact path="/article/:type/:id">
                         <MarkdownRenderer/>
+                    </Route>
+                    <Route exact path="/pdf/:file">
+                        <PdfRenderer />
                     </Route>
                     <Route exact path="/404">
                         <Error404 />
