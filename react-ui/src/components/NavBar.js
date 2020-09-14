@@ -23,6 +23,7 @@ import { FaInstagram } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import { GiBookAura } from 'react-icons/gi';
 import { AiFillHome } from 'react-icons/ai'
+import { ImProfile } from 'react-icons/im';
 
 class ComponentsNavbar extends React.Component {
   constructor(props) {
@@ -177,11 +178,8 @@ class ComponentsNavbar extends React.Component {
                   <DropdownItem tag={Link} to="/article">
                     <GiBookAura />  Articles
                   </DropdownItem>
-                  <DropdownItem tag={Link} to="/landing-page">
-                    Landing Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/profile-page">
-                    Profile Page
+                  <DropdownItem tag={Link} to="/pdf/cv">
+                    <ImProfile />  Resume/CV
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

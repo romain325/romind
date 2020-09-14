@@ -15,7 +15,7 @@ ReactDOM.render(
         <BrowserRouter>
             <Switch>
                     <Route exact path="/">
-                        <Redirect to="/home" />
+                        <Redirect to="/head" />
                     </Route>
                     <Route exact path="/home" render={props => <App />}/>
                     <Route exact path="/head" render={props => <Landing />}/>
