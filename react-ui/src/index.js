@@ -10,6 +10,7 @@ import MarkdownRenderer from './components/Articles/MarkdownRenderer';
 import TopicMenu from './views/TopicMenu';
 import Error404 from './views/404';
 import PdfRenderer from './views/PdfRenderer';
+import Profile from './views/Profile';
 
 ReactDOM.render( 
         <BrowserRouter>
@@ -20,6 +21,8 @@ ReactDOM.render(
                     <Route exact path="/home" render={props => <App />}/>
                     <Route exact path="/head" render={props => <Landing />}/>
                     <Route exact path="/MdRender" render={props => <MarkdownRenderer props={{"md":"FUCKKKKKK"}} />}/>
+                    <Route exact path="/ThatsMe" render={props => <Profile />} />
+
                     <Route exact path="/article">
                         <TopicMenu />
                     </Route>
@@ -29,9 +32,15 @@ ReactDOM.render(
                     <Route exact path="/article/:type/:id">
                         <MarkdownRenderer/>
                     </Route>
+
                     <Route exact path="/pdf/:file">
                         <PdfRenderer />
                     </Route>
+
+
+
+
+
                     <Route exact path="/404">
                         <Error404 />
                     </Route>

@@ -1,17 +1,16 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import NavBar from '../components/NavBar';
+import ParticlesBackWMessage from '../components/ParticlesWMessage';
 
 const Profile = () => {
-  const { user, isAuthenticated } = useAuth0();
 
   return (
-    isAuthenticated && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-      </div>
-    )
+    <div>
+      <NavBar />
+      <ParticlesBackWMessage title="Romain OLIVIER" message="Hello There, Here is my personal profile with useless infos!
+      That means this is not the professional version.   
+      But still cool !! (i hope)"/>
+    </div>
   );
 };
 
