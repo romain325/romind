@@ -24,6 +24,7 @@ import { FaTwitter } from 'react-icons/fa';
 import { GiBookAura } from 'react-icons/gi';
 import { AiFillHome } from 'react-icons/ai'
 import { ImProfile } from 'react-icons/im';
+import { GiAllSeeingEye } from 'react-icons/gi'
 
 class ComponentsNavbar extends React.Component {
   constructor(props) {
@@ -180,6 +181,9 @@ class ComponentsNavbar extends React.Component {
                   </DropdownItem>
                   <DropdownItem tag={Link} to="/pdf/cv">
                     <ImProfile />  Resume/CV
+                  </DropdownItem>
+                  <DropdownItem tag={Link} to="/ThatsMe">
+                    <GiAllSeeingEye />  More About Me !
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

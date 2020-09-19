@@ -1,0 +1,42 @@
+source,target,value
+React,CSS,0
+React,Javascript,0
+React,React,0
+React,TypeScript,0
+NodeJS,Javascript,0
+NodeJS,NodeJS,0
+Java,Java,0
+Java,Algorithms,0
+Java,Modding,0
+Python,Python,1.0
+Python,AI,1.0
+Python,ML,1.0
+.NET Core/Framework,C#,0
+.NET Core/Framework,.NET,0
+.NET Core/Framework,.NetCore,0
+.NET Core/Framework,.NetFramework,0
+Xamarin Forms/Android/iOS,C#,0
+Xamarin Forms/Android/iOS,Xamarin,0
+Xamarin Forms/Android/iOS,Android,0
+Xamarin Forms/Android/iOS,iOS,0
+Xamarin Forms/Android/iOS,Forms,0
+Xamarin Forms/Android/iOS,MultiPlatforms,0
+C/C++,C,1.0
+C/C++,C++,1.0
+C/C++,Data Structure,1.0
+Data Structure,Java,1.0
+C/C++,Low Level Understanding,1.0
+Security,Nmap,2.0
+Security,Wireshark,2.0
+Security,MetaSploit,2.0
+Security,AirCrackNG,2.0
+General Software Development,Git,2.0
+General Software Development,GitHub,2.0
+General Software Development,Linux,2.0
+General Software Development,API Interaction,2.0
+General Software Development,Heroku,2.0
+General Software Development,Security,1.0
+General Software Development,NodeJS,1.0
+Python,Algorithms,1.0
+C/C++,C#,1.0
+MultiPlatforms,React,1.0
