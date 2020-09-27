@@ -2,11 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
+  Button,
   Collapse,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
   NavbarBrand,
   Navbar,
   NavItem,
@@ -17,6 +22,9 @@ import {
   Col,
   UncontrolledTooltip
 } from "reactstrap";
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/themes/theme-bojack.css";
+
 
 import { GoMarkGithub } from 'react-icons/go';
 import { FaInstagram } from 'react-icons/fa';
@@ -31,7 +39,8 @@ class ComponentsNavbar extends React.Component {
     super(props);
     this.state = {
       collapseOpen: false,
-      color: "navbar-transparent"
+      color: "navbar-transparent",
+      modal: false
     };
   }
   componentDidMount() {
@@ -73,6 +82,13 @@ class ComponentsNavbar extends React.Component {
       collapseOut: ""
     });
   };
+
+  toggleModal = () => {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
   render() {
     return (
       <Navbar
@@ -179,8 +195,19 @@ class ComponentsNavbar extends React.Component {
                   <DropdownItem tag={Link} to="/article">
                     <GiBookAura />  Articles
                   </DropdownItem>
-                  <DropdownItem tag={Link} to="/pdf/cv">
+                  <DropdownItem /*tag={Link} to="/pdf/cv"*/ onClick={this.toggleModal}>
                     <ImProfile />  Resume/CV
+                    <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+                      <ModalHeader toggle={this.toggleModal}><h1>Which Resume/CV do you want?</h1></ModalHeader>
+                      <ModalBody className="d-flex flex-column align-items-center justify-content-center">
+                        <Button tag={Link} to="/pdf/cv_long_en">Long CV/Resume(English)</Button>
+                        <Button tag={Link} to="/pdf/cv_fr">Long CV/Resume(French)</Button>
+                        <Button tag={Link} to="/pdf/cv_en">Basic Short Resume(English)</Button>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button onClick={this.toggleModal}>None Of Them</Button>
+                      </ModalFooter>
+                    </Modal>
                   </DropdownItem>
                   <DropdownItem tag={Link} to="/ThatsMe">
                     <GiAllSeeingEye />  More About Me !

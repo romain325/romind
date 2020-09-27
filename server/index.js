@@ -131,6 +131,25 @@ if (!isDev && cluster.isMaster) {
     });
   });
 
+  app.get('/api/noodeljs/profile', (req, res) =>{
+    res.set('Content-Type', 'application/json');
+
+    const contentPath = path.join(__dirname, 'data/json/noodelData.json');
+    fs.readFile(contentPath, 'utf8', (err, data)=>{
+      const returnObj = {result:"Success", content:data};
+      if(err != null) {
+        const returnObj = {result:"Error", content:"Unknown File"};
+        res.send(returnObj);
+      }
+      else{
+        res.send(returnObj);
+      }
+    });
+
+  });
+
+
+
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
     response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));

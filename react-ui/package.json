@@ -9,6 +9,7 @@
     "d3-selection": "^2.0.0",
     "dotenv": "^8.2.0",
     "node-sass": "^4.14.1",
+    "noodel": "^2.2.1",
     "react": "^16.8.6",
     "react-awesome-button": "^6.5.1",
     "react-dom": "^16.8.6",
