@@ -203,6 +203,7 @@ class ComponentsNavbar extends React.Component {
                         <Button tag={Link} to="/pdf/cv_long_en">Long CV/Resume(English)</Button>
                         <Button tag={Link} to="/pdf/cv_fr">Long CV/Resume(French)</Button>
                         <Button tag={Link} to="/pdf/cv_en">Basic Short Resume(English)</Button>
+                        <Button tag={Link} to="https://romain-olivier.welovedevs.com/">Interactive WeLoveDevs page</Button>
                       </ModalBody>
                       <ModalFooter>
                         <Button onClick={this.toggleModal}>None Of Them</Button>
