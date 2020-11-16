@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const cluster = require('cluster');
@@ -6,6 +7,9 @@ const numCPUs = require('os').cpus().length;
 
 const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 5000;
+
+const jsonParser = bodyParser.json();
+const txtParser = bodyParser.text();
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -146,6 +150,52 @@ if (!isDev && cluster.isMaster) {
       }
     });
 
+  });
+
+
+  function writeToFile(path, content){
+    fs.writeFile(path, content, (err) => {
+      if (err) throw err;
+      console.log("File Written to "+ path);
+    });
+  }
+
+  app.post('/api/articles/*/*', txtParser,(req, res) => {
+    const header=req.headers['authorization']||'',        // get the header
+        token=header.split(/\s+/).pop()||'',            // and the encoded auth token
+        auth=Buffer.from(token, 'base64').toString(),    // convert from base64
+        parts=auth.split(/:/),                          // split on colon
+        username=parts[0],
+        password=parts[1];
+
+    try{
+      const hashed = require('crypto').createHash('sha512').update(password).digest('hex');
+      if(process.env.ARTICLE_PUBLISHER_NAME != username || process.env.ARTICLE_PUBLISHER_PASSWORD != hashed){
+        throw "Fuck YOU";
+      }
+
+      const link = req.url.split('/').slice(-2);
+      const folder = link[0], file = link[1];
+      const contentPath = path.join(__dirname, 'data/markdown/'+folder+'/'+file);
+
+      fs.access(path.join(__dirname, 'data/markdown/'+folder), fs.constants.F_OK, (err) => {
+        if(err) {
+          fs.mkdir(path.join(__dirname, 'data/markdown/'+folder), (err) => {
+            if (err) throw err
+            else {
+              writeToFile(contentPath, req.body);
+              res.sendStatus(200);
+            }
+          });
+        }else{
+          writeToFile(contentPath, req.body);
+          res.sendStatus(200);
+        }
+      });
+    }catch(err){
+      console.log(err);
+      res.sendStatus(501);
+    }
   });
 
 
