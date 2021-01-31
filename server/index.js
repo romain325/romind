@@ -35,61 +35,6 @@ if (!isDev && cluster.isMaster) {
   // Link to routes
   app.use("/api", routes);
 
-  app.get('/api/particlesConfig', (req, res) => {
-    res.set('Content-Type', 'application/json');
-    const contentPath = path.join(__dirname, 'data/particles');
-    const returnObj = {
-      result : 'Success',
-      content : ''
-    };
-    fs.readdir(contentPath, (err, files) => {
-      if(err){
-        res.send(JSON.stringify({
-          result: 'Error',
-          content : err.message
-        }));
-        return console.log('Error Scanning directory\n' + err.message);
-      }
-      fs.readFile(`${contentPath}/${files[Math.floor(Math.random()*files.length)]}`, 'utf8', (err, content) => {
-        if(err){
-          res.send(JSON.stringify({
-            result: 'Error',
-            content : err.message
-          }));
-          return console.log('Error Scanning directory\n' + err.message);
-        }
-        returnObj.content = JSON.parse(content);
-        res.send(JSON.stringify(returnObj));
-      }); 
-
-    });
-  });
-
-  app.get('/api/noodeljs/profile', (req, res) =>{
-    res.set('Content-Type', 'application/json');
-
-    const contentPath = path.join(__dirname, 'data/json/noodelData.json');
-    fs.readFile(contentPath, 'utf8', (err, data)=>{
-      const returnObj = {result:"Success", content:data};
-      if(err != null) {
-        const returnObj = {result:"Error", content:"Unknown File"};
-        res.send(returnObj);
-      }
-      else{
-        res.send(returnObj);
-      }
-    });
-
-  });
-
-
-  function writeToFile(path, content){
-    fs.writeFile(path, content, (err) => {
-      if (err) throw err;
-      console.log("File Written to "+ path);
-    });
-  }
-
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
     response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));

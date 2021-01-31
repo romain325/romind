@@ -1,6 +1,6 @@
 const express = require('express');
 const articlesRoute = require('./articles/articles.route');
-
+const config_files = require('./utils/config_file_getter.route');
 
 const router = express.Router();
 
@@ -10,11 +10,14 @@ router.get('/', function (req, res) {
     res.send('{"message":"Hello from the server!"}');
 });
 
-
 // Simple health checker
 router.get("/check", (req,res) => {
     res.send("OK!")
 });
+
+
+// Config files getter
+router.use('/', config_files);
 
 // Mount Articles at /articles
 router.use('/articles', articlesRoute)
