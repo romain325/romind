@@ -15,37 +15,32 @@ import Profile from './views/Profile';
 ReactDOM.render( 
         <BrowserRouter>
             <Switch>
-                    <Route exact path="/">
-                        <Redirect to="/head" />
-                    </Route>
-                    <Route exact path="/home" render={props => <App />}/>
-                    <Route exact path="/head" render={props => <Landing />}/>
-                    <Route exact path="/MdRender" render={props => <MarkdownRenderer props={{"md":"FUCKKKKKK"}} />}/>
-                    <Route exact path="/ThatsMe" render={props => <Profile />} />
+                <Route exact path="/">
+                    <Redirect to="/head" />
+                </Route>
+                <Route exact path="/home" render={props => <App />}/>
+                <Route exact path="/head" render={props => <Landing />}/>
+                <Route exact path="/ThatsMe" render={props => <Profile />} />
 
-                    <Route exact path="/article">
-                        <TopicMenu />
-                    </Route>
-                    <Route exact path="/article/:type">
-                        <TopicMenu/>
-                    </Route>
-                    <Route exact path="/article/:type/:id">
-                        <MarkdownRenderer/>
-                    </Route>
+                <Route exact path="/article">
+                    <TopicMenu />
+                </Route>
+                <Route exact path="/article/:type">
+                    <TopicMenu/>
+                </Route>
+                <Route exact path="/article/:type/:id">
+                    <MarkdownRenderer/>
+                </Route>
 
-                    <Route exact path="/pdf/:file">
-                        <PdfRenderer />
-                    </Route>
+                <Route exact path="/pdf/:file">
+                    <PdfRenderer />
+                </Route>
 
-
-
-
-
-                    <Route exact path="/404">
-                        <Error404 />
-                    </Route>
-                    <Route component={Error404} />
-                </Switch>
+                <Route exact path="/404">
+                    <Error404 />
+                </Route>
+                <Route component={Error404} />
+            </Switch>
         </BrowserRouter>,
     document.getElementById('root')
 );

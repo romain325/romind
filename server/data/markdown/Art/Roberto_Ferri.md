@@ -2,7 +2,7 @@
 
 Have you ever heard of Roberto Ferri ?  
 A beautiful baroque/romantic inspiration, a outbreathing sense of precision, meaningful and full of sensation paintings.  
-Let's check out some of his pieces then !  
+Let's check out some of his pieces then !
 
 ![Art](https://www.italianways.com/wp-content/uploads/2019/09/1521734363-schiavo-dellombra-olio-su-tela-120-x-100-cm-anno.jpg)
 > *'Slave to the shadow'*, oil on canvas, Roberto Ferri

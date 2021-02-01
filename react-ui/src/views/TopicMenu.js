@@ -28,14 +28,15 @@ function TopicMenu(){
           }
           return response.json();
         })
-        .then(json => {
+        .then(jsonStr => {
+            const json = JSON.parse(jsonStr);
             let val = [];
-            if(json.result == "Error"){
-              throw 'What are you doing here ?';
+            if(json.result !== "Success"){
+              throw 'There has been an error';
             }
             json.content.forEach((e,n) => {
-                let text = e.replace(/_|\.md|\$/gi,' ');
-                let link = `/article/${IsMenu ? '' : topicId.type + '/'}${e}`;
+                const text = e.replace(/_|\.md|\$/gi,' ');
+                const link = `/article/${IsMenu ? '' : topicId.type + '/'}${e}`;
                 val.push(
                   <div key={e}>
                       <AwesomeButton 
@@ -50,6 +51,7 @@ function TopicMenu(){
                       </AwesomeButton>
                   </div>);
             });
+
             setMessage(val);
             setArticles(val);        
             setIsFetching(false);
@@ -79,7 +81,7 @@ function TopicMenu(){
     if(!Array.isArray(message) && message != null){
       return (<Redirect to={"/404"}/>)
     }
-    console.log(message?.length);
+
     return(
         <div> 
           <NavBar />
@@ -105,7 +107,7 @@ function TopicMenu(){
           <div className="d-md-flex flex-row flex-wrap justify-content-around">
             {isFetching
               ? <div>'Fetching Data from API'  <Loader/></div> 
-              : ((message?.length == 0) ? <h1><br/>No Articles Available Yet!</h1> : message)}
+              : ((message?.length === 0) ? <h1><br/>No Articles Available Yet!</h1> : message)}
           </div>
         </div>
 

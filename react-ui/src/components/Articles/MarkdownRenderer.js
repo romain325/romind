@@ -1,12 +1,17 @@
 import { Container } from "reactstrap";
 import Particles from "react-tsparticles";
 import PartConfig from "../../assets/json/headerPartConfig.json"
-import ReactMarkdown from "react-markdown";
+import ReactMarkdownWithHtml from "react-markdown/with-html";
+import { remarkGfm } from "remark-gfm"
 import React, { useCallback, useEffect, useState } from 'react';
 import NavBar from "../../components/NavBar"
 import { 
     useParams, useHistory
 } from 'react-router-dom';
+
+function mdImage(props){
+    return <img {...props} style={{maxWidth: '100%'}} />
+}
 
 function MarkdownRenderer(){
 
@@ -29,14 +34,13 @@ function MarkdownRenderer(){
         return response.json();
       })
       .then(json => {
-          console.log(json);
           if(json.result == "Error"){
             throw 'What are you doing here ?';
           }
+          console.log(json.content)
           setArticle(json.content);        
           setIsFetching(false);
       }).catch(e => {
-        console.log(e);
         setArticle(`API call failed: ${e}`);
         setIsFetching(false);
         redirectTo404();
@@ -66,7 +70,7 @@ function MarkdownRenderer(){
             opacity: "0.9",
             zIndex: "99"
         }}>
-            <ReactMarkdown source={Article}/>
+            <ReactMarkdownWithHtml plugins={[remarkGfm]} children={Article}  renderers={{image: mdImage}} allowDangerousHtml />
         </Container>
       </div>
     );
