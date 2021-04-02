@@ -1,9 +1,10 @@
 const path = require("path");
 const fs = require("fs");
+const gh_data = require("../data/githubApi");
 
 if(process.env.NODE_ENV !== 'production'){
     require("dotenv").config();
-    console.log("load env Var");
+    console.log(".env Var Loaded");
 }
 
 /*** UTILS ***/
@@ -15,27 +16,21 @@ function writeToFile(path, content){
 }
 
 
-function listFolder(req,res){
+async function listFolder(req,res){
     const returnObj = {
         result : 'Success',
         fileType: 'folder',
         type: 'data',
         content: []
     };
-    fs.readdir( path.join(__dirname, '../data/markdown'), (err, files) => {
-        if(err){
-            return res.json(JSON.stringify({
-                result: 'Error',
-                type :'error',
-                message : err.message
-            }));
-        }
-        returnObj.content = files;
-        return res.json(JSON.stringify(returnObj));
-    });
+
+    const folder = await gh_data.getFolder("/articles");
+    returnObj.content = folder;
+
+    return res.json(returnObj);
 }
 
-function listFiles(req,res){
+async function listFiles(req,res){
     const ext = req.params.folder;// (req.headers.referer.split('/').slice(-1)[0]);
     const returnObj = {
         result : 'Success',
@@ -43,33 +38,23 @@ function listFiles(req,res){
         type: ext,
         content: []
     };
-    fs.readdir(path.join(__dirname, '../data/markdown/' + ext), (err, files) => {
-        if(err){
-            return res.json(JSON.stringify({
-                result: 'Error',
-                type :'error',
-                message : err.message
-            }));
-        }
 
-        returnObj.content = files;
-        return res.json(JSON.stringify(returnObj));
-    });
+    const files = await gh_data.getFolder("/articles/" + ext);
+    returnObj.content = files;
+
+    return res.json(returnObj);
 }
 
-function getFile(req,res){
+async function getFile(req,res){
     const folder = req.params.folder, file = req.params.file;
 
-    fs.readFile(path.join(__dirname, '../data/markdown/'+folder+'/'+file), 'utf8', (err, data)=>{
-        let returnObj = {result:"Success", content:data};
-        if(err != null) {
-            returnObj = {result: "Error", content: "Unknown File"};
-        }
-        return res.json(returnObj);
-    });
-
+    const text = await gh_data.getFile("/articles/" + folder + "/" + file);
+    return res.json({result: "Success", content: text});
 }
 
+/**
+ * DEPRECATED
+ */
 function addFile(req,res){
     const header= req.headers['authorization']||'',        // get the header
         token=header.split(/\s+/).pop()||'',            // and the encoded auth token
