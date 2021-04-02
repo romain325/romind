@@ -20,10 +20,10 @@ const Profile = () => {
             return response.json();
         })
         .then(json => {
-            if(json.result == "Error"){
+            if(json.result !== "Success"){
                 throw 'What are you doing here ?';
             }
-            setData(JSON.parse(json.content));        
+            setData(json.content);        
             setIsFetching(false);
         }).catch(e => {
             setData(`API call failed: ${e}`);

@@ -5,9 +5,13 @@ import '../assets/css/noodel.css';
 
 function NoodelTree(props){
 
+    console.log(props)
+    if(props.data == null){
+        return <p>{props.message}</p>;
+    }
+
     let display = useRef(null);
-
-
+    
     const tree = new Noodel(props.data);
 
     useEffect(() => {

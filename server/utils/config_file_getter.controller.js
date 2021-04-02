@@ -1,32 +1,20 @@
 const fs = require("fs");
 const path = require("path");
+const gh_data = require("../data/githubApi");
 
-function getParticlesConfig(req,res){
-    const contentPath = path.join(__dirname, '../data/particles');
-    fs.readdir(contentPath, (err, files) => {
-        if(err){
-            return res.sendStatus(500);
-        }
-        fs.readFile(`${contentPath}/${files[Math.floor(Math.random()*files.length)]}`, 'utf8', (err, content) => {
-            if(err){
-                return res.sendStatus(500);
-            }
-            return res.json({
-                result: 'Success',
-                content: JSON.parse(content)
-            });
-        });
+async function getParticlesConfig(req,res){
+    const files = await gh_data.getFolder("/particles").catch(err => {return err});
+    const data = JSON.parse(await gh_data.getFile("/particles/" + files[Math.floor(Math.random() * files.length)]).catch(err => { return err }));
+
+    return res.json({
+        result: 'Success',
+        content: data
     });
 }
 
-function getNoodleProfile(req,res){
-    fs.readFile(path.join(__dirname, '../data/json/noodelData.json'), 'utf8', (err, data)=>{
-        let returnObj = {result:"Success", content:data};
-        if(err) {
-            returnObj = {result:"Error", content:"Unknown File"};
-        }
-        return res.json(returnObj);
-    });
+async function getNoodleProfile(req,res){
+    const data = JSON.parse(await gh_data.getFile("/json/noodelData.json").catch(err => {return err} ));
+    return res.json({result:"Success", content:data});
 }
 
 module.exports = {getNoodleProfile, getParticlesConfig};

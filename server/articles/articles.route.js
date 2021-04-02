@@ -14,7 +14,5 @@ router.route('/:folder')
 router.route('/:folder/:file')
     // GET /api/articles/:folder/:file - Get article content
     .get(artController.getFile)
-    // POST /api/articles/:folder/:file - Add new Article
-    .post(require("body-parser").text(),artController.addFile)
 
 module.exports = router;
