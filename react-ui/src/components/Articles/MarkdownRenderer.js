@@ -1,17 +1,12 @@
 import { Container } from "reactstrap";
 import Particles from "react-tsparticles";
 import PartConfig from "../../assets/json/headerPartConfig.json"
-import ReactMarkdownWithHtml from "react-markdown/with-html";
-import { remarkGfm } from "remark-gfm"
 import React, { useCallback, useEffect, useState } from 'react';
 import NavBar from "../../components/NavBar"
 import { 
     useParams, useHistory
 } from 'react-router-dom';
-
-function mdImage(props){
-    return <img {...props} style={{maxWidth: '100%'}} />
-}
+import Loader from '../Loader';
 
 function MarkdownRenderer(){
 
@@ -37,7 +32,6 @@ function MarkdownRenderer(){
           if(json.result == "Error"){
             throw 'What are you doing here ?';
           }
-          console.log(json.content)
           setArticle(json.content);        
           setIsFetching(false);
       }).catch(e => {
@@ -70,8 +64,12 @@ function MarkdownRenderer(){
             opacity: "0.9",
             zIndex: "99"
         }}>
-            <ReactMarkdownWithHtml plugins={[remarkGfm]} children={Article}  renderers={{image: mdImage}} allowDangerousHtml />
-        </Container>
+          {isFetching 
+            ? <div>'Fetching Data from API'  <Loader/></div> 
+            : <div dangerouslySetInnerHTML={{__html: Article}} />
+          }
+
+          </Container>
       </div>
     );
 }

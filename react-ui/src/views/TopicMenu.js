@@ -20,16 +20,15 @@ function TopicMenu(){
 
     let searchBarVal = "";
 
-    const fetchData = useCallback(() => {
+    const fetchData = useCallback(async () => {
       fetch(url)
-        .then(response => {
+        .then(async response => {
           if (!response.ok) {
             throw new Error(`status ${response.status}`);
           }
           return response.json();
         })
-        .then(jsonStr => {
-            const json = JSON.parse(jsonStr);
+        .then(json => {
             let val = [];
             if(json.result !== "Success"){
               throw 'There has been an error';
@@ -79,7 +78,7 @@ function TopicMenu(){
     }
 
     if(!Array.isArray(message) && message != null){
-      return (<Redirect to={"/404"}/>)
+      //return (<Redirect to={"/404"}/>)
     }
 
     return(

@@ -48,7 +48,10 @@ async function listFiles(req,res){
 async function getFile(req,res){
     const folder = req.params.folder, file = req.params.file;
 
-    const text = await gh_data.getFile("/articles/" + folder + "/" + file);
+    let text = await gh_data.getFile("/articles/" + folder + "/" + file);
+
+    text = await gh_data.mdToHtml(text);
+
     return res.json({result: "Success", content: text});
 }
 

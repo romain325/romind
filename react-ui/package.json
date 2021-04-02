@@ -14,15 +14,13 @@
     "react-awesome-button": "^6.5.1",
     "react-dom": "^16.8.6",
     "react-icons": "^3.11.0",
-    "react-markdown": "^4.3.1",
     "react-pdf": "^5.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-skillset": "^1.0.0",
     "react-tsparticles": "^1.17.10",
     "react-typed": "^1.2.0",
-    "reactstrap": "^8.5.1",
-    "remark-gfm": "^1.0.0"
+    "reactstrap": "^8.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
