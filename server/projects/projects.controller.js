@@ -18,13 +18,19 @@ async function listFolder(req,res){
 }
 
 async function getAll(req, res){
-    const test = await gh_data.getProjects(allTopics);
-    console.log(test);
-    return res.json(test);
+    return res.json(await gh_data.getProjects(allTopics));
 }
 
 async function getFromTopics(req, res){
-
+    if(req.body.topics === undefined){
+        res.status(400);
+        return res.send("Invalid Request");
+    }
+    return res.json(await gh_data.getProjects(req.body.topics));
 }
 
-module.exports = { getAll, getFromTopics };
+async function getOneTopic(req,res){
+    return res.json(await gh_data.getProjects([req.params.topic]));
+}
+
+module.exports = { getAll, getFromTopics, getOneTopic };

@@ -1,14 +1,14 @@
-var assert = require('assert');
-
+const assert = require('assert');
+const githubApi = require('../../../data/github/githubApi');
 
 describe('githubApi', () => {
 
   describe('#getProjects()', () => {
 
-    it('should return an object', async (done) => {
-      const data = await githubApi.getProjects().catch((err) => console.log(err));
-      assert.equal(data instanceof Object, true); 
-      done();
+    it('should return an object containing arrays', async () => {
+      const res = await githubApi.getProjects(["romind-pinned"]);
+      assert.equal(res instanceof Object, true);
+      assert.equal(res["romind-pinned"] instanceof Array, true);
     });
   
   });
