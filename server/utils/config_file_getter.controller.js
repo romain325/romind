@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const gh_data = require("../data/githubApi");
+const gh_data = require("../data/github/githubApi");
 
 async function getParticlesConfig(req,res){
     const files = await gh_data.getFolder("/particles").catch(err => {return err});

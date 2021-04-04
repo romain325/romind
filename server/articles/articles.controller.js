@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const gh_data = require("../data/githubApi");
+const gh_data = require("../data/github/githubApi");
 
 async function listFolder(req,res){
     const returnObj = {

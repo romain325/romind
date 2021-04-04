@@ -1,5 +1,6 @@
 const express = require('express');
 const articlesRoute = require('./articles/articles.route');
+const projectsRoute = require('./projects/projects.route');
 const config_files = require('./utils/config_file_getter.route');
 
 const router = express.Router();
@@ -20,6 +21,8 @@ router.get("/check", (req,res) => {
 router.use('/', config_files);
 
 // Mount Articles at /articles
-router.use('/articles', articlesRoute)
+router.use('/articles', articlesRoute);
+
+router.use('/projects', projectsRoute);
 
 module.exports = router;
