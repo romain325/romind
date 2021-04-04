@@ -6,7 +6,7 @@ require('dotenv').config()
 
 const authedHeader = {
     headers: {
-        "Authorization": "Basic " + process.env.GITHUB_TOKEN
+        "Authorization": "token " + process.env.GITHUB_TOKEN
     }
 }
 
@@ -47,9 +47,13 @@ async function getProjects(wantedTopics){
     let data = await axios.get(
         holder.github_endpoint + "/users/" + holder.user + "/repos", 
         specialHeaders
-    );
+    ).catch(err => {
+        console.log(err);
+        return err;
+    });
+
     if(data.status !== 200){
-        return res.json(data);
+        return data;
     }else{
         data = data["data"];
     }
