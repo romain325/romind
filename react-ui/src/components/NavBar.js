@@ -26,7 +26,7 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/themes/theme-bojack.css";
 
 
-import { GoMarkGithub } from 'react-icons/go';
+import { GoMarkGithub, GoProject } from 'react-icons/go';
 import { FaInstagram } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import { GiBookAura } from 'react-icons/gi';
@@ -194,6 +194,9 @@ class ComponentsNavbar extends React.Component {
                   </DropdownItem>
                   <DropdownItem tag={Link} to="/article">
                     <GiBookAura />  Articles
+                  </DropdownItem>
+                  <DropdownItem tag={Link} to="/projects">
+                    <GoProject />  Projects
                   </DropdownItem>
                   <DropdownItem /*tag={Link} to="/pdf/cv"*/ onClick={this.toggleModal}>
                     <ImProfile />  Resume/CV

@@ -11,6 +11,7 @@ import TopicMenu from './views/TopicMenu';
 import Error404 from './views/404';
 import PdfRenderer from './views/PdfRenderer';
 import Profile from './views/Profile';
+import ProjectsList from './views/ProjectsList';
 
 ReactDOM.render( 
         <BrowserRouter>
@@ -22,15 +23,11 @@ ReactDOM.render(
                 <Route exact path="/head" render={props => <Landing />}/>
                 <Route exact path="/ThatsMe" render={props => <Profile />} />
 
-                <Route exact path="/article">
-                    <TopicMenu />
-                </Route>
-                <Route exact path="/article/:type">
-                    <TopicMenu/>
-                </Route>
-                <Route exact path="/article/:type/:id">
-                    <MarkdownRenderer/>
-                </Route>
+                <Route exact path="/article"><TopicMenu /></Route>
+                <Route exact path="/article/:type"><TopicMenu/></Route>
+                <Route exact path="/article/:type/:id"><MarkdownRenderer/></Route>
+
+                <Route exact path="/projects"><ProjectsList/></Route>
 
                 <Route exact path="/pdf/:file">
                     <PdfRenderer />

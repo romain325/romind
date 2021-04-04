@@ -5,6 +5,7 @@ class RepoData {
         this.star = repo.stargazers_count;
         this.fork = repo.forks;
         this.link = repo.html_url;
+        this.image = repo.owner.avatar_url;
     }
 }
 
